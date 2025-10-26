@@ -10,19 +10,19 @@ import static com.codeborne.selenide.Selenide.*;
 public class RegistrationPage {
 
     private final SelenideElement header = $("h1"),
-                                firstNameInput = $("#firstName"),
-                                lastNameInput = $("#lastName"),
-                                emailInput = $("#userEmail"),
-                                genderSelector = $("#genterWrapper"),
-                                phoneInput =  $("#userNumber"),
-                                subjectsInput = $("#subjectsInput"),
-                                hobbiesSelector = $("#hobbiesWrapper"),
-                                uploadPicture = $("#uploadPicture"),
-                                addressInput = $("#currentAddress"),
-                                stateInput = $("#stateCity-wrapper #state input"),
-                                cityInput = $("#stateCity-wrapper #city input"),
-                                submitButton = $("#submit"),
-                                dateOfBirthInput = $("#dateOfBirthInput");
+            firstNameInput = $("#firstName"),
+            lastNameInput = $("#lastName"),
+            emailInput = $("#userEmail"),
+            genderSelector = $("#genterWrapper"),
+            phoneInput = $("#userNumber"),
+            subjectsInput = $("#subjectsInput"),
+            hobbiesSelector = $("#hobbiesWrapper"),
+            uploadPicture = $("#uploadPicture"),
+            addressInput = $("#currentAddress"),
+            stateInput = $("#stateCity-wrapper #state input"),
+            cityInput = $("#stateCity-wrapper #city input"),
+            submitButton = $("#submit"),
+            dateOfBirthInput = $("#dateOfBirthInput");
 
     CalendarComponent calendar = new CalendarComponent();
 
@@ -33,9 +33,9 @@ public class RegistrationPage {
     }
 
     public RegistrationPage removeBanners() {
-            executeJavaScript("$('#fixedban').remove()");
-            executeJavaScript("$('footer').remove()");
-            return this;
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+        return this;
     }
 
     public RegistrationPage setFirstName(String value) {
@@ -75,8 +75,8 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setHobbies(String value) {
-       hobbiesSelector.$(byText(value)).click();
-       return this;
+        hobbiesSelector.$(byText(value)).click();
+        return this;
     }
 
     public RegistrationPage setPicture(String path) {
@@ -85,8 +85,8 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setAddress(String value) {
-       addressInput.setValue(value);
-       return this;
+        addressInput.setValue(value);
+        return this;
     }
 
     public RegistrationPage setState(String value) {
@@ -109,22 +109,22 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage checkFirstNameValidation(){
+    public RegistrationPage checkFirstNameValidation() {
         firstNameInput.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
         return this;
     }
 
-    public RegistrationPage checkLastNameValidation(){
+    public RegistrationPage checkLastNameValidation() {
         lastNameInput.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
         return this;
     }
 
-    public RegistrationPage checkEmailValidation(){
+    public RegistrationPage checkEmailValidation() {
         emailInput.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
         return this;
     }
 
-    public RegistrationPage checkPhoneValidation(){
+    public RegistrationPage checkPhoneValidation() {
         phoneInput.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
         return this;
     }
