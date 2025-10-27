@@ -8,9 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ResultModalComponent {
 
-    private final SelenideElement modalHeader = $(".modal-header"),
-            resultsTable = $(".table-responsive"),
-            closeButton = $("#closeLargeModal");
+    private final SelenideElement modalHeader = $(".modal-header"), resultsTable = $(".table-responsive"), closeButton = $("#closeLargeModal");
 
     public ResultModalComponent checkModalIsOpen() {
         modalHeader.shouldHave(text("Thanks for submitting the form"));

@@ -9,20 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
 
-    private final SelenideElement header = $("h1"),
-            firstNameInput = $("#firstName"),
-            lastNameInput = $("#lastName"),
-            emailInput = $("#userEmail"),
-            genderSelector = $("#genterWrapper"),
-            phoneInput = $("#userNumber"),
-            subjectsInput = $("#subjectsInput"),
-            hobbiesSelector = $("#hobbiesWrapper"),
-            uploadPicture = $("#uploadPicture"),
-            addressInput = $("#currentAddress"),
-            stateInput = $("#stateCity-wrapper #state input"),
-            cityInput = $("#stateCity-wrapper #city input"),
-            submitButton = $("#submit"),
-            dateOfBirthInput = $("#dateOfBirthInput");
+    private final SelenideElement header = $("h1"), firstNameInput = $("#firstName"), lastNameInput = $("#lastName"), emailInput = $("#userEmail"), genderSelector = $("#genterWrapper"), phoneInput = $("#userNumber"), subjectsInput = $("#subjectsInput"), hobbiesSelector = $("#hobbiesWrapper"), uploadPicture = $("#uploadPicture"), addressInput = $("#currentAddress"), stateInput = $("#stateCity-wrapper #state input"), cityInput = $("#stateCity-wrapper #city input"), submitButton = $("#submit"), dateOfBirthInput = $("#dateOfBirthInput");
 
     CalendarComponent calendar = new CalendarComponent();
 
@@ -130,8 +117,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage checkGenderValidation() {
-        genderSelector.$$("[for^='gender-radio']")
-                .forEach(label -> label.shouldHave(cssValue("color", "rgba(220, 53, 69, 1)")));
+        genderSelector.$$("[for^='gender-radio']").forEach(label -> label.shouldHave(cssValue("color", "rgba(220, 53, 69, 1)")));
         return this;
     }
 }
