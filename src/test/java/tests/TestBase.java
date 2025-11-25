@@ -37,7 +37,6 @@ public class TestBase {
 
     @AfterEach
     void tearDown() {
-        Selenide.closeWebDriver();
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
