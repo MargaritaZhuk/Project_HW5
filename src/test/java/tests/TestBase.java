@@ -20,7 +20,7 @@ public class TestBase {
         Configuration.browserVersion = System.getProperty("browserVersion", "142.0");
         Configuration.timeout = 10000;
         Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = System.getProperty("REMOTE_BROWSER_URL","https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        Configuration.remote = System.getProperty("remoteBrowser","https://user1:1234@selenoid.autotests.cloud/wd/hub");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
