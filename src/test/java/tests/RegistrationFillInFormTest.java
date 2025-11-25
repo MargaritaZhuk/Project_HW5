@@ -10,6 +10,7 @@ import pages.components.ResultModalComponent;
 import static io.qameta.allure.Allure.step;
 
 
+@DisplayName("Тесты на форму регистрации")
 public class RegistrationFillInFormTest extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     ResultModalComponent resultModalComponent = new ResultModalComponent();

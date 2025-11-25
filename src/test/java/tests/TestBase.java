@@ -36,7 +36,7 @@ public class TestBase {
 
     @AfterEach
     void tearDown() {
-        Attach.screenshotAs("Last screenshot");
+        Attach.screenshotAs("Final screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
