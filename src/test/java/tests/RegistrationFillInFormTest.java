@@ -66,14 +66,14 @@ public class RegistrationFillInFormTest extends TestBase {
 
     @Test
     @Tag("registration")
-    @DisplayName("Валидация эл.почты - заведомо провальный")
+    @DisplayName("Валидация эл.почты")
     void emailValidationTest() {
         step("Open form", () -> {
             registrationPage.openPage().removeBanners();
         });
 
         step("Fill in form", () -> {
-            registrationPage.setFirstName("Margarita").setLastName("Zhuk").setGender("Female").setPhone("9663453928").setEmail("aaa@gmail.com").submitForm();
+            registrationPage.setFirstName("Margarita").setLastName("Zhuk").setGender("Female").setPhone("9663453928").setEmail("aaa@gmail").submitForm();
         });
         step("Check results", () -> {
             registrationPage.checkEmailValidation();
