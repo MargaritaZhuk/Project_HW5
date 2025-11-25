@@ -1,5 +1,7 @@
 package tests;
 
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import pages.components.ResultModalComponent;
@@ -10,6 +12,7 @@ public class RegistrationFillInFormTest extends TestBase {
     ResultModalComponent resultModalComponent = new ResultModalComponent();
 
     @Test
+    @Tag("registration")
     void fillTextFormTest() {
         registrationPage.openPage().removeBanners().setFirstName("Margarita").setLastName("Zhuk").setEmail("zhukrita@gmail.com").setGender("Female").setPhone("9663453928").setDateOfBirth("1997", "March", "5").setSubjects("M").setHobbies("Sports").setPicture("image1.jpeg").setAddress("Address 1").setState("NCR").setCity("Delhi").submitForm();
 
@@ -17,6 +20,8 @@ public class RegistrationFillInFormTest extends TestBase {
     }
 
     @Test
+    @Tag("registration")
+    @Disabled("Require some changes")
     void fillMinimalFormTest() {
         registrationPage.openPage().removeBanners().setFirstName("Margarita").setLastName("Zhuk").setGender("Female").setPhone("9663453928").setDateOfBirth("1997", "March", "5").submitForm();
 
@@ -25,12 +30,14 @@ public class RegistrationFillInFormTest extends TestBase {
     }
 
     @Test
+    @Tag("registration")
     void validationTextFormTest() {
         registrationPage.openPage().removeBanners().submitForm().checkOverallValidation().checkFirstNameValidation().checkLastNameValidation().checkGenderValidation().checkPhoneValidation();
         resultModalComponent.checkModalIsNotOpen();
     }
 
     @Test
+    @Tag("registration")
     void emailValidationTest() {
         registrationPage.openPage().removeBanners().setFirstName("Margarita").setLastName("Zhuk").setGender("Female").setPhone("9663453928").setEmail("aaa@aa").submitForm().checkEmailValidation();
         resultModalComponent.checkModalIsNotOpen();

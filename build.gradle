@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.12.0'
 }
 
 group = 'zhuk.margarita'
@@ -9,13 +10,43 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    testImplementation 'com.codeborne:selenide:7.10.1'
+def allureVersion = "2.30.0",
+    selenideVersion = "7.10.1"
+
+allure {
+    report {
+        version.set(allureVersion)
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set(allureVersion)
+            }
+        }
+    }
 }
 
-test {
+dependencies {
+    testImplementation ("io.qameta.allure:allure-selenide:$allureVersion",
+            "org.junit.jupiter:junit-jupiter:5.10.0",
+            'org.slf4j:slf4j-simple:2.0.7',
+            "com.codeborne:selenide:$selenideVersion")
+}
+
+tasks.withType(Test) {
     useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+task registrationFillInForm (type: Test) {
+    useJUnitPlatform {
+        includeTags("registration")
+    }
 }
